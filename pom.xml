@@ -7,7 +7,25 @@
 	<packaging>jar</packaging>
 
 	<name>nullanno</name>
+	<description>Annotations for null-analysis (Eclipse-based but types are non-null by default as well)</description>
 	<url>https://github.com/solf/nullanno</url>
+	
+	<licenses>
+		<license>
+			<name>Eclipse Public License - v 1.0</name>
+			<url>https://www.eclipse.org/legal/epl-v10.html</url>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<id>solf</id>
+			<name>Sergey Olefir</name>
+			<email>solf.opensource@gmail.com</email>
+			<organization>none</organization>
+			<organizationUrl>https://github.com/solf/</organizationUrl>
+		</developer>
+	</developers>
 	
 	<scm>
 		<connection>scm:git:https://github.com/solf/nullanno.git</connection>
@@ -58,6 +76,19 @@
 					<threadCount>4</threadCount>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
