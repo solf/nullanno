@@ -29,6 +29,7 @@
 	
 	<scm>
 		<connection>scm:git:https://github.com/solf/nullanno.git</connection>
+		<url>https://github.com/solf/nullanno</url>
 	</scm>
 	
 	<properties>
