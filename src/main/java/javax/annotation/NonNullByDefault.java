@@ -19,6 +19,8 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import javax.annotation.meta.TypeQualifierDefault;
  
 /**
  * Applying this annotation to a declaration has the effect that type references,
@@ -58,6 +60,15 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.CLASS)
 @Target({ ElementType.PACKAGE, ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.LOCAL_VARIABLE })
+@Nonnull // this is specifically for Idea support (it also produces Eclipse warning here)
+@TypeQualifierDefault({
+	ElementType.FIELD,
+	ElementType.METHOD,
+	ElementType.PARAMETER,
+	ElementType.LOCAL_VARIABLE,
+	ElementType.TYPE_PARAMETER,
+	ElementType.TYPE_USE,
+})
 public @interface NonNullByDefault {
 	/**
 	 * Specifies the set of locations within the annotated declaration that should be affected by the nonnull default.
