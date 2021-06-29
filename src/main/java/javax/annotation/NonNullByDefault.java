@@ -61,7 +61,7 @@ import javax.annotation.meta.TypeQualifierDefault;
 @Retention(RetentionPolicy.CLASS)
 @Target({ ElementType.PACKAGE, ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.LOCAL_VARIABLE })
 @Nonnull // this is specifically for Idea support (it also produces Eclipse warning here)
-@TypeQualifierDefault({
+@TypeQualifierDefault({ // see https://youtrack.jetbrains.com/issue/IDEA-144920#focus=Comments-27-3949320.0-0 for Idea null-support information
 	ElementType.FIELD,
 	ElementType.METHOD,
 	ElementType.PARAMETER,
