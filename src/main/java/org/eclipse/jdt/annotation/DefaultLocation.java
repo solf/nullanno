@@ -8,7 +8,7 @@
  * Contributors:
  *     Stephan Herrmann - initial API and implementation
  *******************************************************************************/
-package javax.annotation;
+package org.eclipse.jdt.annotation;
 
 /**
  * Locations that can be affected by a {@link NonNullByDefault} annotation.
@@ -19,11 +19,11 @@ package javax.annotation;
 public enum DefaultLocation {
 	
 	/**
-	 * Defines that a given {@link ParametersAreNonnullByDefault} annotation should affect all unannotated
+	 * Defines that a given {@link NonNullByDefault} annotation should affect all unannotated
 	 * parameters of any method or constructor within the scope of the annotated declaration.
 	 * 
 	 * <h2>Example</h2>
-	 * <pre> @ParametersAreNonnullByDefault(PARAMETER)
+	 * <pre> @NonNullByDefault(PARAMETER)
 	 * interface X {
 	 *     void print(Number n);
 	 * }</pre>
@@ -34,11 +34,11 @@ public enum DefaultLocation {
 	PARAMETER,
 	
 	/**
-	 * Defines that a given {@link ParametersAreNonnullByDefault} annotation should affect all unannotated
+	 * Defines that a given {@link NonNullByDefault} annotation should affect all unannotated
 	 * method return types within the scope of the annotated declaration.
 	 * 
 	 * <h2>Example</h2>
-	 * <pre> @ParametersAreNonnullByDefault(RETURN_TYPE)
+	 * <pre> @NonNullByDefault(RETURN_TYPE)
 	 * interface X {
 	 *     Number getNumber();
 	 * }</pre>
@@ -49,11 +49,11 @@ public enum DefaultLocation {
 	RETURN_TYPE,
 	
 	/**
-	 * Defines that a given {@link ParametersAreNonnullByDefault} annotation should affect all unannotated
+	 * Defines that a given {@link NonNullByDefault} annotation should affect all unannotated
 	 * field types within the scope of the annotated declaration.
 	 * 
 	 * <h2>Example</h2>
-	 * <pre> @ParametersAreNonnullByDefault(FIELD)
+	 * <pre> @NonNullByDefault(FIELD)
 	 * class X {
 	 *     Number number = Integer.MAX_VALUE;
 	 * }</pre>
@@ -64,11 +64,11 @@ public enum DefaultLocation {
 	FIELD,
 	
 	/**
-	 * Defines that a given {@link ParametersAreNonnullByDefault} annotation should affect all unannotated
+	 * Defines that a given {@link NonNullByDefault} annotation should affect all unannotated
 	 * type parameter declarations within the scope of the annotated declaration.
 	 * 
 	 * <h2>Example</h2>
-	 * <pre> @ParametersAreNonnullByDefault(TYPE_PARAMETER)
+	 * <pre> @NonNullByDefault(TYPE_PARAMETER)
 	 * class X {
 	 *     &lt;T&gt; T identity(T t) { return t; }
 	 * }</pre>
@@ -79,13 +79,13 @@ public enum DefaultLocation {
 	TYPE_PARAMETER,
 	
 	/**
-	 * Defines that a given {@link ParametersAreNonnullByDefault} annotation should affect all unannotated
+	 * Defines that a given {@link NonNullByDefault} annotation should affect all unannotated
 	 * explicit type bounds within the scope of the annotated declaration. A type bound of
 	 * type {@link java.lang.Object} is <strong>never</strong> considered as an explicit bound,
-	 * i.e., <code>T extends Object</code> is never affected by {@link ParametersAreNonnullByDefault}.
+	 * i.e., <code>T extends Object</code> is never affected by {@link NonNullByDefault}.
 	 * 
 	 * <h2>Example</h2>
-	 * <pre> @ParametersAreNonnullByDefault(TYPE_BOUND)
+	 * <pre> @NonNullByDefault(TYPE_BOUND)
 	 * interface X {
 	 *     &lt;T extends Number&gt; void process(T t, List&lt;? super Number&gt; l);
 	 * }</pre>
@@ -96,12 +96,12 @@ public enum DefaultLocation {
 	TYPE_BOUND,
 	
 	/**
-	 * Defines that a given {@link ParametersAreNonnullByDefault} annotation should affect all unannotated
+	 * Defines that a given {@link NonNullByDefault} annotation should affect all unannotated
 	 * type arguments within the scope of the annotated declaration (except wildcards and
 	 * type variables).
 	 * 
 	 * <h2>Example</h2>
-	 * <pre> @ParametersAreNonnullByDefault(TYPE_ARGUMENT)
+	 * <pre> @NonNullByDefault(TYPE_ARGUMENT)
 	 * interface X&lt;T&gt; {
 	 *     void process(List&lt;T&gt; tl, List&lt;Number&gt; nl);
 	 * }</pre>
@@ -113,11 +113,11 @@ public enum DefaultLocation {
 	TYPE_ARGUMENT,
 
 	/**
-	 * Defines that a given {@link ParametersAreNonnullByDefault} annotation should affect all unannotated
+	 * Defines that a given {@link NonNullByDefault} annotation should affect all unannotated
 	 * array components within the scope of the annotated declaration.
 	 * 
 	 * <h2>Example</h2>
-	 * <pre> @ParametersAreNonnullByDefault(ARRAY_CONTENTS)
+	 * <pre> @NonNullByDefault(ARRAY_CONTENTS)
 	 * interface X {
 	 *     Number[] n1;
 	 *     Number[][] n2;

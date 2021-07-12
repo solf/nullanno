@@ -9,18 +9,18 @@
  *     Stephan Herrmann - initial API and implementation
  *     IBM Corporation - bug fixes
  *******************************************************************************/
-package javax.annotation;
+package org.eclipse.jdt.annotation;
 
 import java.lang.annotation.ElementType;
 
-import static javax.annotation.DefaultLocation.*;
+import static org.eclipse.jdt.annotation.DefaultLocation.*;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import javax.annotation.meta.TypeQualifierDefault;
+import javax.annotation.Nonnull;
  
 /**
  * Applying this annotation to a declaration has the effect that type references,
@@ -55,25 +55,30 @@ import javax.annotation.meta.TypeQualifierDefault;
  * <a href="http://help.eclipse.org/kepler/topic/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/annotation/NonNullByDefault.html">
  * <code>@NonNullByDefault</code> in 1.1.0</a>.
  * </p>
+ * <p>
+ * 2021-07-09 Sergey Olefir NOTES: for IntelliJ IDEA support of default non-null
+ * annotations see: https://youtrack.jetbrains.com/issue/IDEA-144920#focus=Comments-27-3949320.0-0
+ * </p>
+ * <p>
+ * Eclipse appears to give priority to TypeQualifierDefault annotation if present
+ * and that annotation doesn't appear to allow specifying all of the possible
+ * options (e.g. TYPE_ARGUMENT and ARRAY_CONTENTS are impossible + others).
+ * </p>
+ * <p>
+ * So it appears the only way to have proper default-non-null support across
+ * Eclipse & IDEA is to use org.eclipse.jdt.annotation.NonNullByDefault
+ * full-qualified annotation name. 
+ * </p>
  * @since 1.0
  */
 @Documented
 @Retention(RetentionPolicy.CLASS)
 @Target({ ElementType.PACKAGE, ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.LOCAL_VARIABLE })
-@Nonnull // this is specifically for Idea support (it also produces Eclipse warning here)
-@TypeQualifierDefault({ // see https://youtrack.jetbrains.com/issue/IDEA-144920#focus=Comments-27-3949320.0-0 for Idea null-support information
-	ElementType.FIELD,
-	ElementType.METHOD,
-	ElementType.PARAMETER,
-	ElementType.LOCAL_VARIABLE,
-	ElementType.TYPE_PARAMETER,
-	ElementType.TYPE_USE,
-})
 public @interface NonNullByDefault {
 	/**
 	 * Specifies the set of locations within the annotated declaration that should be affected by the nonnull default.
 	 * @return the locations, or an empty array to cancel any null defaults from enclosing scopes
 	 * @since 2.0
 	 */
-	DefaultLocation[] value() default { PARAMETER, RETURN_TYPE, FIELD, TYPE_BOUND, TYPE_ARGUMENT, ARRAY_CONTENTS };
+	DefaultLocation[] value() default { PARAMETER, RETURN_TYPE, FIELD, TYPE_BOUND, TYPE_ARGUMENT, ARRAY_CONTENTS }; // Sergey Olefir: added ARRAY_CONTENTS 
 }
