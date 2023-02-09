@@ -39,7 +39,7 @@ import java.lang.annotation.Target;
  * @since 1.0
  */
 @Documented
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
 @Target({ TYPE_USE, ElementType.PARAMETER })
 public @interface Nullable {
 	// marker annotation with no members

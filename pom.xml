@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 
 	<name>nullanno</name>
-	<description>Annotations for null-analysis (Eclipse-based but types are non-null by default as well)</description>
+	<description>Annotations for null-analysis (Eclipse-based but types are non-null by default AND annotations are retained at runtime)</description>
 	<url>https://github.com/solf/nullanno</url>
 	
 	<licenses>

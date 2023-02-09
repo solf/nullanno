@@ -48,7 +48,7 @@ import java.lang.annotation.Target;
  * @since 1.0
  */
 @Documented
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
 @Target({ TYPE_USE })
 public @interface Nonnull {
 	// marker annotation with no members

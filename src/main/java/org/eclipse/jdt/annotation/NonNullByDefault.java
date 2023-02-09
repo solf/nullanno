@@ -72,7 +72,7 @@ import javax.annotation.Nonnull;
  * @since 1.0
  */
 @Documented
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.PACKAGE, ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.LOCAL_VARIABLE })
 public @interface NonNullByDefault {
 	/**
