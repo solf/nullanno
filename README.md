@@ -6,7 +6,7 @@ Project is intended for use with Maven:
 		<dependency>
 			<groupId>io.github.solf</groupId>
 			<artifactId>nullanno</artifactId>
-			<version>2.0.0</version>
+			<version>3.1.0</version>
 		</dependency>
 ```
 
