@@ -109,17 +109,28 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
+				<version>3.6.0</version>
 				<executions>
+					<execution>
+						<id>update</id>
+						<goals>
+							<goal>fix</goal>
+						</goals>
+						<configuration>
+ 					        <defaultVersion>${project.version}</defaultVersion>
+						</configuration>
+					</execution>
 					<execution>
 						<id>attach-javadocs</id>
 						<goals>
 							<goal>jar</goal>
 						</goals>
 						<configuration>
-							<!-- Disables annoying Javadoc validation in 1.8 -->
-							<additionalparam>-Xdoclint:none</additionalparam>
- 					        <defaultVersion>${project.version}</defaultVersion>
+							<!-- Tries to bypass all the Javadoc validation using the newer Maven plugin version -->
+							<doclint>none</doclint>
+							<additionalOptions>--ignore-source-errors</additionalOptions>
+							<failOnError>false</failOnError>
+							<quiet>true</quiet>
 						</configuration>
 					</execution>
 				</executions>
